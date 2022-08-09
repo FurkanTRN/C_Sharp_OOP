@@ -6,17 +6,22 @@ namespace Constructors
     {
         static void Main(string[] args)
         {
-           //Demo();
+            //Demo();
 
-           PersonManager personManager = new PersonManager("Product");
-           personManager.Add();
-           Console.ReadLine();
+            Teacher.Number = 10;
 
-           
+
+
+
+
+            Console.ReadLine();
         }
 
         private static void Demo()
         {
+            PersonManager personManager = new PersonManager("Product");
+            personManager.Add();
+
             CustomerManager customerManager = new CustomerManager(10);
             customerManager.List();
 
@@ -36,8 +41,9 @@ namespace Constructors
         {
             _entitiy = entitiy;
         }
-        public void Message(){
-            Console.WriteLine("{0} message",_entitiy);
+        public void Message()
+        {
+            Console.WriteLine("{0} message", _entitiy);
         }
     }
 
@@ -45,7 +51,7 @@ namespace Constructors
     {
         public PersonManager(string entity) : base(entity)
         {
-            
+
         }
 
         public void Add()
@@ -57,7 +63,7 @@ namespace Constructors
 
     class CustomerManager
     {
-        private int _count=15;
+        private int _count = 15;
         public CustomerManager(int count)
         {
             _count = count;
@@ -65,12 +71,12 @@ namespace Constructors
 
         public CustomerManager()
         {
-            
+
         }
 
         public void List()
         {
-            Console.WriteLine("listed {0} items",_count);
+            Console.WriteLine("listed {0} items", _count);
         }
 
         public void Add()
@@ -83,7 +89,7 @@ namespace Constructors
     {
         public Product()
         {
-            
+
         }
 
         private int _id;
@@ -91,7 +97,7 @@ namespace Constructors
         public Product(int id, string name)
         {
             _id = id;
-            _name = name; 
+            _name = name;
         }
         public int Id { get; set; }
         public string Name { get; set; }
@@ -116,13 +122,43 @@ namespace Constructors
         ILogger _logger;
         public EmployeeManager(ILogger logger)
         {
-            _logger=logger;
+            _logger = logger;
         }
-        public void Add(){
+        public void Add()
+        {
             _logger.Log();
             Console.WriteLine("added");
         }
     }
 
-   
+    static class Teacher
+    {
+        // Static classlarda new ile nesne oluşturulamaz.
+        // Arkada planda otomatik olarak tek nesne oluşur ve herkes o nesneyi kullanır.
+
+        public static int Number { get; set; }
+
+    }
+
+    static class Utilities
+    {
+        public static void Validate(){
+            Console.WriteLine("validation is done");
+        }
+    }
+
+    class Manager
+    {
+        public static void DoSomething()
+        {
+            Console.WriteLine("validation is done");
+        }
+
+        public void DoSomething2()
+        {
+            Console.WriteLine("validation is done");
+
+        }
+    }
+
 }
