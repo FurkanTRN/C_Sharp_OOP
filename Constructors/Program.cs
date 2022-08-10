@@ -9,11 +9,6 @@ namespace Constructors
             //Demo();
 
             Teacher.Number = 10;
-
-
-
-
-
             Console.ReadLine();
         }
 
